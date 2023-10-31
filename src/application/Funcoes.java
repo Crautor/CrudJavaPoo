@@ -3,8 +3,10 @@ package application;
 import model.dao.DaoFactory;
 import model.dao.EixoDao;
 import model.dao.EnderecoDao;
+import model.dao.CnaeDao;
 import model.entities.Eixo;
 import model.entities.Endereco;
+import model.entities.CNAE;
 
 import java.util.List;
 import java.util.Scanner;
@@ -84,6 +86,7 @@ public class Funcoes {
 		sc.close();
 	}
 // fim eixo
+
 	// inicio endereco
 	static void updateEndereco(){
 		Scanner sc = new Scanner(System.in);
@@ -170,5 +173,79 @@ public class Funcoes {
 		sc.close();
 	}
 // fim endereco
+
+	// Cnae
+	static void updateCnae(){
+		Scanner sc = new Scanner(System.in);
+		CnaeDao CnaeDao = DaoFactory.createCnaeDao();
+
+		System.out.println("\n=== TEST 4: update =======");
+		System.out.println("informe o id que deseja atualizar");
+		CNAE dep2 = CnaeDao.findById(sc.nextInt());
+		System.out.println("digite o codigo");
+		dep2.setCod(sc.nextLine());
+		System.out.println("digite a descricao");
+		dep2.setDescricao(sc.nextLine());
+		CnaeDao.update(dep2);
+		System.out.println("Update completed");
+		sc.close();
+
+	}
+
+	static void findIdCnae(){
+		Scanner sc = new Scanner(System.in);
+
+		CnaeDao CnaeDao = DaoFactory.createCnaeDao();
+
+		System.out.println("=== TEST 1: findById =======");
+		System.out.println("informe o id a ser exibido");
+		CNAE dep = CnaeDao.findById(sc.nextInt());
+		System.out.println(dep);
+		sc.close();
+
+	}
+
+	static void findAllCnae(){
+		CnaeDao CnaeDao = DaoFactory.createCnaeDao();
+
+		System.out.println("\n=== TEST 2: findAll =======");
+		List<CNAE> list = CnaeDao.findAll();
+		for (CNAE d : list) {
+			System.out.println(d);
+		}
+
+	}
+
+	static void insertCnae(){
+		Scanner sc = new Scanner(System.in);
+		Scanner sc2 = new Scanner(System.in);
+
+		CnaeDao CnaeDao = DaoFactory.createCnaeDao();
+
+		System.out.println("\n=== TEST 3: insert =======");
+		System.out.println("digite o codigo");
+		String cod= sc.nextLine();
+		System.out.println("digite a descricao");
+		String desc= sc2.nextLine();
+		CNAE newCNAE = new CNAE(null,cod,desc);
+		CnaeDao.insert(newCNAE);
+		System.out.println("Inserted! New id: " + newCNAE.getId());
+		sc.close();
+		sc2.close();
+	}
+
+	static void deleteCnae(){
+		Scanner sc = new Scanner(System.in);
+
+		CnaeDao CnaeDao = DaoFactory.createCnaeDao();
+
+		System.out.println("\n=== TEST 5: delete =======");
+		System.out.print("Enter id for delete test: ");
+		int id = sc.nextInt();
+		CnaeDao.deleteById(id);
+		System.out.println("Delete completed");
+		sc.close();
+	}
+// fim Cnae
 }
 

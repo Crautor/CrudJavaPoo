@@ -3,6 +3,7 @@ package model.dao;
 import db.DB;
 import model.dao.impl.EixoDaoJDBC;
 import model.dao.impl.EnderecoDaoJDBC;
+import model.dao.impl.CNAEDAOJDBC;
 
 public class DaoFactory {
 
@@ -11,5 +12,5 @@ public class DaoFactory {
 		return new EixoDaoJDBC(DB.getConnection());
 	}
 	public static EnderecoDao createEnderecoDao() { return new EnderecoDaoJDBC(DB.getConnection());}
-
+	public static CnaeDao createCnaeDao() { return new CNAEDAOJDBC(DB.getConnection());}
 }
