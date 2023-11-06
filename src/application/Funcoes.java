@@ -13,7 +13,7 @@ import java.util.Scanner;
 
 public class Funcoes {
 // eixo
-	static void updateEixo(){
+	public static void updateEixo(){
 		Scanner sc = new Scanner(System.in);
 		EixoDao eixoDao = DaoFactory.createEixoDao();
 
@@ -33,9 +33,8 @@ public class Funcoes {
 
 	}
 
-	static void findIdEixo(){
+	public static void findIdEixo(){
 		Scanner sc = new Scanner(System.in);
-
 		EixoDao eixoDao = DaoFactory.createEixoDao();
 
 		System.out.println("=== TEST 1: findById =======");
@@ -46,7 +45,7 @@ public class Funcoes {
 
 	}
 
-	static void findAllEixo(){
+	public static void findAllEixo(){
 		EixoDao eixoDao = DaoFactory.createEixoDao();
 
 		System.out.println("\n=== TEST 2: findAll =======");
@@ -57,7 +56,7 @@ public class Funcoes {
 
 	}
 
-	static void insertEixo(){
+	public static void insertEixo(){
 		Scanner sc = new Scanner(System.in);
 
 		EixoDao eixoDao = DaoFactory.createEixoDao();
@@ -73,7 +72,7 @@ public class Funcoes {
 		sc.close();
 	}
 
-	static void deleteEixo(){
+	public static void deleteEixo(){
 		Scanner sc = new Scanner(System.in);
 
 		EixoDao eixoDao = DaoFactory.createEixoDao();
@@ -88,7 +87,7 @@ public class Funcoes {
 // fim eixo
 
 	// inicio endereco
-	static void updateEndereco(){
+	public static void updateEndereco(){
 		Scanner sc = new Scanner(System.in);
 		EnderecoDao enderecoDao = DaoFactory.createEnderecoDao();
 
@@ -111,7 +110,7 @@ public class Funcoes {
 
 	}
 
-	static void findIdEndereco(){
+	public static void findIdEndereco(){
 		Scanner sc = new Scanner(System.in);
 
 		EnderecoDao enderecoDao = DaoFactory.createEnderecoDao();
@@ -124,7 +123,7 @@ public class Funcoes {
 
 	}
 
-	static void findAllEndereco(){
+	public static void findAllEndereco(){
 		EnderecoDao enderecoDao = DaoFactory.createEnderecoDao();
 
 		System.out.println("\n=== TEST 2: findAll =======");
@@ -135,7 +134,7 @@ public class Funcoes {
 
 	}
 
-	static void insertEndereco(){
+	public static void insertEndereco(){
 		Scanner sc = new Scanner(System.in);
 		Scanner sc2 = new Scanner(System.in);
 
@@ -160,7 +159,7 @@ public class Funcoes {
 		sc2.close();
 	}
 
-	static void deleteEndereco(){
+	public static void deleteEndereco(){
 		Scanner sc = new Scanner(System.in);
 
 		EnderecoDao enderecoDao = DaoFactory.createEnderecoDao();
@@ -175,7 +174,7 @@ public class Funcoes {
 // fim endereco
 
 	// Cnae
-	static void updateCnae(){
+	public static void updateCnae(){
 		Scanner sc = new Scanner(System.in);
 		CnaeDao CnaeDao = DaoFactory.createCnaeDao();
 
@@ -183,8 +182,10 @@ public class Funcoes {
 		System.out.println("informe o id que deseja atualizar");
 		CNAE dep2 = CnaeDao.findById(sc.nextInt());
 		System.out.println("digite o codigo");
+		sc.nextLine();
 		dep2.setCod(sc.nextLine());
 		System.out.println("digite a descricao");
+
 		dep2.setDescricao(sc.nextLine());
 		CnaeDao.update(dep2);
 		System.out.println("Update completed");
@@ -192,7 +193,7 @@ public class Funcoes {
 
 	}
 
-	static void findIdCnae(){
+	public static void findIdCnae(){
 		Scanner sc = new Scanner(System.in);
 
 		CnaeDao CnaeDao = DaoFactory.createCnaeDao();
@@ -205,7 +206,7 @@ public class Funcoes {
 
 	}
 
-	static void findAllCnae(){
+	public static void findAllCnae(){
 		CnaeDao CnaeDao = DaoFactory.createCnaeDao();
 
 		System.out.println("\n=== TEST 2: findAll =======");
@@ -216,7 +217,7 @@ public class Funcoes {
 
 	}
 
-	static void insertCnae(){
+	public static void insertCnae(){
 		Scanner sc = new Scanner(System.in);
 		Scanner sc2 = new Scanner(System.in);
 
@@ -234,7 +235,7 @@ public class Funcoes {
 		sc2.close();
 	}
 
-	static void deleteCnae(){
+	public static void deleteCnae(){
 		Scanner sc = new Scanner(System.in);
 
 		CnaeDao CnaeDao = DaoFactory.createCnaeDao();
