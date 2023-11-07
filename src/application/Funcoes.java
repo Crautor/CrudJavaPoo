@@ -4,9 +4,11 @@ import model.dao.DaoFactory;
 import model.dao.EixoDao;
 import model.dao.EnderecoDao;
 import model.dao.CnaeDao;
+import model.dao.FuncionarioDao;
 import model.entities.Eixo;
 import model.entities.Endereco;
 import model.entities.CNAE;
+import model.entities.Funcionario;
 
 import java.util.List;
 import java.util.Scanner;
@@ -248,5 +250,93 @@ public class Funcoes {
 		sc.close();
 	}
 // fim Cnae
+
+	// inicio funcionario
+	static void updateFuncionario(){
+		Scanner sc = new Scanner(System.in);
+		FuncionarioDao funcionarioDao = DaoFactory.createFuncionarioDao();
+
+		System.out.println("\n=== TEST 4: update =======");
+		System.out.println("informe o id que deseja atualizar");
+		Funcionario funcionario = funcionarioDao.findById(sc.nextInt());
+		System.out.println("digite o nome");
+		sc.nextLine();
+		funcionario.setNome(sc.nextLine());
+		System.out.println("digite a numero de registro");
+		funcionario.setNumeroRegistro(sc.nextInt());
+		System.out.println("digite o Turno");
+		sc.nextLine();
+		funcionario.setTurno(sc.nextLine());
+		System.out.println("digite o CPF");
+		funcionario.setCPF(sc.nextLine());
+		funcionarioDao.update(funcionario);
+		System.out.println("Update completed");
+		sc.close();
+
+	}
+
+	static void findIdFuncionario(){
+		Scanner sc = new Scanner(System.in);
+
+		FuncionarioDao funcionarioDao = DaoFactory.createFuncionarioDao();
+
+
+		System.out.println("=== TEST 1: findById =======");
+		System.out.println("informe o id a ser exibido");
+		Funcionario funcionario = funcionarioDao.findById(sc.nextInt());
+		System.out.println(funcionario);
+		sc.close();
+
+	}
+
+	static void findAllFuncionario(){
+		FuncionarioDao funcionarioDao = DaoFactory.createFuncionarioDao();
+
+		System.out.println("\n=== TEST 2: findAll =======");
+		List<Funcionario> list = funcionarioDao.findAll();
+		for (Funcionario funcionario : list) {
+			System.out.println(funcionario);
+		}
+
+	}
+
+	static void insertFuncionario(){
+		Scanner sc = new Scanner(System.in);
+		Scanner sc2 = new Scanner(System.in);
+
+		FuncionarioDao funcionarioDao = DaoFactory.createFuncionarioDao();
+
+		System.out.println("\n=== TEST 3: insert =======");
+		System.out.println("digite o nome");
+		String nome= sc.nextLine();
+		System.out.println("digite o número de registro");
+		Integer numeroRegistro= sc2.nextInt();
+		System.out.println("digite o turno");
+		sc2.nextLine();
+		String turno= sc2.nextLine();
+		System.out.println("digite o CPF");
+		String CPF= sc2.nextLine();
+
+		Funcionario newFuncionario = new Funcionario(null,nome,numeroRegistro,turno,CPF);
+		funcionarioDao.insert(newFuncionario);
+
+		System.out.println("Inserted! New id: " + newFuncionario.getId());
+		sc.close();
+		sc2.close();
+	}
+
+	static void deleteFuncionario(){
+		Scanner sc = new Scanner(System.in);
+
+		FuncionarioDao funcionarioDao = DaoFactory.createFuncionarioDao();
+
+		System.out.println("\n=== TEST 5: delete =======");
+		System.out.print("Enter id for delete test: ");
+		int id = sc.nextInt();
+		funcionarioDao.deleteById(id);
+		System.out.println("Delete completed");
+		sc.close();
+	}
+// fim funcionario
 }
 

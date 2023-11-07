@@ -17,3 +17,11 @@ CREATE TABLE Cnae(
      cod VARCHAR(10) NOT NULL,
      descricao VARCHAR(500) NOT NULL
 );
+
+CREATE TABLE Funcionario(
+    funcionario_id INT auto_increment primary KEY,
+    nome varchar(30) NOT NULL,
+    numeroRegistro int(3) NOT NULL,
+    turno varchar(5),
+    CPF varchar(11) NOT NULL
+);

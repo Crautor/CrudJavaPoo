@@ -26,9 +26,11 @@ public class CrudEndereco extends Funcoes {
 				insertEndereco();
 				break;
 			case 3:
+				findAllEndereco();
 				deleteEndereco();
 				break;
 			case 4:
+				findAllEndereco();
 				updateEndereco();
 				break;
 			default:

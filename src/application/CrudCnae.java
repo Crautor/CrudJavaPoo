@@ -26,9 +26,11 @@ public class CrudCnae extends Funcoes {
 				insertCnae();
 				break;
 			case 3:
+				findAllCnae();
 				deleteCnae();
 				break;
 			case 4:
+				findAllCnae();
 				updateCnae();
 				break;
 			default:

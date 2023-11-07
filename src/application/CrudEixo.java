@@ -31,9 +31,11 @@ public class CrudEixo extends Funcoes {
 				insertEixo();
 				break;
 			case 3:
+				findAllEixo();
 				deleteEixo();
 				break;
 			case 4:
+				findAllEixo();
 				updateEixo();
 				break;
 			default:
