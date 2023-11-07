@@ -12,6 +12,7 @@ public class Menu extends JFrame {
     private JButton CnaeButton;
     private JButton EixoButton;
     private JButton EnderecoButton;
+    private JButton FuncionarioButton;
 
 
     public Menu() {
@@ -26,12 +27,14 @@ public class Menu extends JFrame {
         JPanel menuCnaePanel = createMenuCnaePanel();
         JPanel menuEixoPanel = createMenuEixoPanel();
         JPanel menuEnderecoPanel = createMenuEnderecoPanel();
+        JPanel menuFuncionarioPanel = createMenuFuncionarioPanel();
 
 
         // Adicione os painéis ao "cards" com nomes para identificá-los
         cards.add(menuCnaePanel, "menuCnae");
         cards.add(menuEixoPanel, "menuEixo");
         cards.add(menuEnderecoPanel, "menuEndereco");
+        cards.add(menuFuncionarioPanel, "menuFuncionario");
 
 
         add(cards);
@@ -40,6 +43,7 @@ public class Menu extends JFrame {
         CnaeButton = new JButton("Cnae");
         EixoButton = new JButton("Eixo");
         EnderecoButton = new JButton("Endereco");
+        FuncionarioButton = new JButton("Funcionario");
 
 
 // Associe os botões aos métodos correspondentes
@@ -64,6 +68,13 @@ public class Menu extends JFrame {
 
             }
         });
+        FuncionarioButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cardLayout.show(cards, "menuFuncionario");
+
+            }
+        });
 
 
 // Adicione os botões do menu principal
@@ -71,6 +82,7 @@ public class Menu extends JFrame {
         menuPrincipalPanel.add(CnaeButton);
         menuPrincipalPanel.add(EixoButton);
         menuPrincipalPanel.add(EnderecoButton);
+        menuPrincipalPanel.add(FuncionarioButton);
 
 
         add(menuPrincipalPanel, BorderLayout.NORTH);
@@ -97,6 +109,12 @@ public class Menu extends JFrame {
 
 
         addEnderecoButtons(panel);
+        return panel;
+    }private JPanel createMenuFuncionarioPanel() {
+        JPanel panel = new JPanel();
+
+
+        addFuncionarioButtons(panel);
         return panel;
     }
 
@@ -252,6 +270,54 @@ public class Menu extends JFrame {
         menuEnderecoPanel.add(findIDEndereco);
         menuEnderecoPanel.add(updateEndereco);
         menuEnderecoPanel.add(deleteEndereco);
+    }private void addFuncionarioButtons(JPanel menuFuncionarioPanel) {
+        JButton cadastrarFuncionario = new JButton("Cadastrar Funcionario");
+        JButton findAllFuncionario = new JButton("Exibir Todos Funcionario");
+        JButton findIDFuncionario = new JButton("Exibir Funcionario por ID");
+        JButton updateFuncionario = new JButton("Atualizar Funcionario");
+        JButton deleteFuncionario = new JButton("Deletar Funcionario");
+
+        // Associe esses botões aos métodos correspondentes
+        cadastrarFuncionario.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cadastrarFuncionario();
+            }
+        });
+
+        findAllFuncionario.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                exibirTodosFuncionario();
+            }
+        });
+
+        findIDFuncionario.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                exibirFuncionarioPeloId();
+            }
+        });
+
+        updateFuncionario.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                atualizarFuncionario();
+            }
+        });
+
+        deleteFuncionario.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                deletarFuncionario();
+            }
+        });
+
+        menuFuncionarioPanel.add(cadastrarFuncionario);
+        menuFuncionarioPanel.add(findAllFuncionario);
+        menuFuncionarioPanel.add(findIDFuncionario);
+        menuFuncionarioPanel.add(updateFuncionario);
+        menuFuncionarioPanel.add(deleteFuncionario);
     }
 
     private void cadastrarCnae() {
@@ -310,6 +376,25 @@ public class Menu extends JFrame {
 
     private void deletarEndereco() {
         Funcoes.deleteEndereco();
+    }
+    private void cadastrarFuncionario() {
+        Funcoes.insertFuncionario();
+    }
+
+    private void exibirTodosFuncionario() {
+        Funcoes.findAllFuncionario();
+    }
+
+    private void exibirFuncionarioPeloId() {
+        Funcoes.findIdFuncionario();
+    }
+
+    private void atualizarFuncionario() {
+        Funcoes.updateFuncionario();
+    }
+
+    private void deletarFuncionario() {
+        Funcoes.deleteFuncionario();
     }
 
 }

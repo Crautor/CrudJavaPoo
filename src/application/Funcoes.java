@@ -252,7 +252,7 @@ public class Funcoes {
 // fim Cnae
 
 	// inicio funcionario
-	static void updateFuncionario(){
+	public static void updateFuncionario(){
 		Scanner sc = new Scanner(System.in);
 		FuncionarioDao funcionarioDao = DaoFactory.createFuncionarioDao();
 
@@ -275,7 +275,7 @@ public class Funcoes {
 
 	}
 
-	static void findIdFuncionario(){
+	public static void findIdFuncionario(){
 		Scanner sc = new Scanner(System.in);
 
 		FuncionarioDao funcionarioDao = DaoFactory.createFuncionarioDao();
@@ -289,7 +289,7 @@ public class Funcoes {
 
 	}
 
-	static void findAllFuncionario(){
+	public static void findAllFuncionario(){
 		FuncionarioDao funcionarioDao = DaoFactory.createFuncionarioDao();
 
 		System.out.println("\n=== TEST 2: findAll =======");
@@ -300,7 +300,7 @@ public class Funcoes {
 
 	}
 
-	static void insertFuncionario(){
+	public static void insertFuncionario(){
 		Scanner sc = new Scanner(System.in);
 		Scanner sc2 = new Scanner(System.in);
 
@@ -325,7 +325,7 @@ public class Funcoes {
 		sc2.close();
 	}
 
-	static void deleteFuncionario(){
+	public static void deleteFuncionario(){
 		Scanner sc = new Scanner(System.in);
 
 		FuncionarioDao funcionarioDao = DaoFactory.createFuncionarioDao();
